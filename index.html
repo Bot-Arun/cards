@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    </script> <!-- Jquery-->
+    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo:wght@500&family=Monda:wght@700&family=Varela+Round&display=swap"
+        rel="stylesheet">
+    <title>Cards
+    </title>
+    <style>
+        /*  main  */
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            text-align: center;
+            padding: 0px;
+            border-radius: 30px;
+            font-family: 'Exo', sans-serif;
+
+        }
+
+        html {
+            background-color: rgb(21, 24, 63);
+
+        }
+
+        div.container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            align-items: center;
+            width: 100%;
+
+            align-content: space-around;
+            justify-content: space-around;
+        }
+
+        /* Holder  */
+        .holder {
+            display: relative;
+            margin: 50px;
+            animation-name: a1, a2;
+            transition: margin 1s;
+        }
+
+
+
+        .holder img {
+            height: auto;
+            left: 0px;
+            overflow: hidden;
+            position: relative;
+            transition: opacity 1s;
+        }
+
+
+        div.card {
+            display: inline-block;
+            height: 400px;
+            position: relative;
+            width: 300px;
+            color: rgb(213, 210, 223);
+            background-color: rgb(32, 36, 66);
+        }
+
+        .card::before {
+            content: '';
+            height: 412px;
+            display: block;
+            margin: 0px;
+            position: absolute;
+            width: 312px;
+            left: -6px;
+            top: -6px;
+            z-index: -2;
+            opacity: 1;
+
+            box-shadow: 0px 0px 20px 20px rgb(31, 16, 41);
+            border-radius: 30px;
+        }
+
+        .card::after {
+            content: '';
+            height: 408px;
+            display: block;
+            position: absolute;
+            width: 308px;
+            left: -4px;
+            top: -4px;
+            z-index: -1;
+            border-radius: 30px;
+            opacity: 1;
+            background: linear-gradient(90deg, rgb(196, 54, 196), rgb(14, 187, 173))
+        }
+
+        div.overlay {
+            position: absolute;
+            height: 400px;
+            width: 300px;
+            transition: height 1s, opacity 1s;
+            z-index: 5;
+            opacity: 1;
+            background-color: rgb(17, 15, 46);
+            top: 0;
+            left: 0;
+        }
+
+
+        /*  content  */
+        div.c-title {
+            border-bottom: 2px solid rgb(33, 68, 119);
+            padding: 30px;
+            border-radius: 0px;
+            font-size: 50px;
+        }
+
+        div.content {
+            padding: 20px;
+            font-size: 25px;
+            font-family: 'Exo', sans-serif;
+
+        }
+
+
+        /*  image  */
+        .im1 {
+
+            top: 100px;
+            width: 120px;
+        }
+
+        .im2 {
+            top: 10px;
+            width: 290px;
+            filter: invert(100%);
+        }
+
+        .im3 {
+
+            top: 110px;
+            width: 90px;
+
+        }
+
+
+        /* hover */
+        .holder:hover .overlay {
+            height: 0px;
+            opacity: 1;
+        }
+
+        .holder:hover img {
+            opacity: 0;
+        }
+
+        .holder:hover div.overlay {
+            opacity: 0;
+        }
+
+        .holder:hover>.card::after {
+
+            animation: a1 4s linear infinite;
+            filter: blur(10px);
+        }
+
+        .holder:hover>.card::before {
+
+            filter: blur(10px);
+
+            animation: a2 4s linear infinite;
+        }
+
+        .holder:hover {
+            margin-top: 30px;
+            margin-bottom: 70px;
+        }
+
+        /* Scroll Bar */
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: inherit;
+            border-radius: 10px;
+            border: 2px solid grey;
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(0deg, rgb(196, 54, 196), rgb(14, 187, 173));
+            border: 2px solid darkgrey;
+            border-radius: 10px;
+
+
+        }
+
+        @keyframes a1 {
+            0% {
+                background: linear-gradient(90deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            12.5% {
+                background: linear-gradient(90deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 1;
+            }
+
+            25% {
+                background: linear-gradient(90deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            25.1% {
+                background: linear-gradient(180deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            37.5% {
+                background: linear-gradient(180deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 1;
+            }
+
+            50% {
+                background: linear-gradient(180deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            50.1% {
+                background: linear-gradient(270deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            62.5% {
+                background: linear-gradient(270deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 1;
+            }
+
+            75% {
+                background: linear-gradient(270deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            75.1% {
+                background: linear-gradient(0deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            87.5% {
+                background: linear-gradient(0deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 1;
+            }
+
+            99.9% {
+                background: linear-gradient(360deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            100% {
+                background: linear-gradient(90deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+        }
+
+        @keyframes a2 {
+            0% {
+                background: linear-gradient(0deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 1;
+            }
+
+            12% {
+                background: linear-gradient(0deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            13% {
+                background: linear-gradient(90deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            25% {
+                background: linear-gradient(90deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 1;
+            }
+
+            37% {
+                background: linear-gradient(90deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            38% {
+                background: linear-gradient(180deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            50% {
+                background: linear-gradient(180deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 1;
+            }
+
+            62% {
+                background: linear-gradient(180deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            63% {
+                background: linear-gradient(270deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            75% {
+                background: linear-gradient(270deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 1;
+            }
+
+            87% {
+                background: linear-gradient(270deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            88% {
+                background: linear-gradient(360deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 0;
+            }
+
+            100% {
+                background: linear-gradient(360deg, rgb(196, 54, 196), rgb(14, 187, 173));
+                opacity: 1;
+            }
+        }
+
+        @keyframes a3 {
+
+            0%,
+            100% {
+                filter: hue-rotate(0deg);
+            }
+
+            50% {
+                filter: hue-rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="holder">
+            <div class="card c1">
+
+                <div class="c-title">Windows</div>
+                <div class="content">Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit.
+                    Repellendus magnam voluptatem
+                    sequi autem numquam harum. </div>
+
+                <div class="overlay"><img src="windows10.png" class="im1" alt=""></div>
+            </div>
+
+        </div>
+        <div class="holder">
+            <div class="card c2">
+                <div class="c-title">Apple</div>
+                <div class="content">Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit.
+                    Repellendus magnam voluptatem
+                    sequi autem numquam harum. </div>
+
+                <div class="overlay"><img src="apple-logo.png" class="im2" alt=""></div>
+            </div>
+        </div>
+        <div class="holder">
+            <div class="card c3">
+                <div class="c-title">Google</div>
+                <div class="content"> Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit.
+                    Repellendus magnam voluptatem
+                    sequi autem numquam harum.
+                </div>
+
+                <div class="overlay"><img src="google.png" class="im3" alt=""></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
